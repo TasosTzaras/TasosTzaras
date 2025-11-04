@@ -1,0 +1,37 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1; /* this makes it take remaining space */
+  gap: 40px;
+  padding: 40px 20px 100px 20px; /* bottom padding for hover space */
+  box-sizing: border-box;
+}
+
+
+
+/* Full-width info boxes */
+.full-width-box {
+  /* width: 100%; */
+  max-width: 1200px; /* keeps content centered and readable */
+  padding: 40px 60px; /* internal padding for text */
+  margin: 0 auto; /* center horizontally */
+  background-color: rgba(240, 240, 240, 0.95);
+  color: #000;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+/* Optional hover effect */
+.full-width-box:hover {
+  transform: translateY(-5px);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .full-width-box {
+  background-color: rgba(0, 31, 77, 0.9);
+  color: white;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}

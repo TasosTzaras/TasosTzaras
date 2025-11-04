@@ -1,0 +1,147 @@
+.profile-box {
+    width: 280px;
+    height: 380px;
+    perspective: 1000px;
+    margin: 2rem auto;
+}
+
+.box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Flip animation */
+.profile-box:hover .box-inner {
+    transform: rotateY(180deg);
+}
+
+.box-front,
+.box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    overflow: hidden;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.box-front {
+    background-color: var(--box-bg, #fff);
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.box-back {
+    background-color: var(--box-bg, #f0f0f0);
+    color: inherit;
+    transform: rotateY(180deg);
+}
+
+/* Social buttons */
+.social-buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.social-btn {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* GitHub button */
+.github-btn {
+    background-color: #333; /* GitHub dark gray */
+    color: #fff; /* keep text white */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.github-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-color: #000; /* darker on hover */
+    color: #fff; /* ensure text stays white */
+}
+
+
+/* LinkedIn button */
+.linkedin-btn {
+    background-color: #0077b5; /* LinkedIn blue */
+    color: #fff; /* keep text white */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.linkedin-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-color: #005582; /* slightly darker blue on hover */
+    color: #fff; /* ensure text stays white */
+}
+
+/* Dark mode social button shadows */
+body.dark-mode .github-btn:hover {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .linkedin-btn:hover {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Dark mode support */
+body.dark-mode .box-front,
+body.dark-mode .box-back {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+}
+
+body.dark-mode .github-btn {
+    background-color: #444;
+}
+
+body.dark-mode .linkedin-btn {
+    background-color: #0e76a8;
+}
+
+
+.flip-hint {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #555;
+    opacity: 0.7;
+    animation: pulse 2s infinite;
+}
+
+/* Pulse animation for hint */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.7;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-3px);
+    }
+}
+
+/* Dark mode support for hint */
+body.dark-mode .flip-hint {
+    color: #ccc;
+}
